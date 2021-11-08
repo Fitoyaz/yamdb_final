@@ -1,4 +1,5 @@
 import string
+
 from api_yamdb.settings import SEND_MAIL
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
@@ -141,8 +142,7 @@ class GenreDelViewSet(mixins.DestroyModelMixin,  # DELETE-запросы
     permission_classes = [IsAdminRole, ]
 
     def get_queryset(self):
-        queryset = get_object_or_404(Genre, id=self.kwargs['id'])
-        return queryset
+        return get_object_or_404(Genre, id=self.kwargs['id'])
 
 
 class TitleViewSet(viewsets.ModelViewSet):
