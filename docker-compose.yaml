@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 services:
   db:
@@ -8,19 +8,17 @@ services:
     env_file:
       - ./.env
   web:
+    image: dolottsev/yamdb_final:latest
     build: .
     restart: always
     command: gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
-    ports:
-      - "8000:8000"
     volumes:
-      - static_value:/code/static/
+      - static_value:/code/statiкc/
       - media_value:/code/media/
     depends_on:
       - db
     env_file:
       - ./.env
-
 
   nginx:
     image: nginx:1.19.3
