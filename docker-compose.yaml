@@ -11,6 +11,8 @@ services:
     image: fitoyaz/yamdb_final:latest
     build: .
     restart: always
+    ports:
+      - "8000:8000"
     volumes:
       - static_value:/code/static/
       - media_value:/code/media/
@@ -29,6 +31,7 @@ services:
       - media_value:/var/html/media/
     depends_on:
       - web
+
 
 volumes:
   postgres_data:
