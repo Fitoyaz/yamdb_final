@@ -45,7 +45,10 @@ jobs:
             tags: fitoyaz/yamdb_final
 
   deploy:
-      - master
+    on:
+      push:
+        branches:
+          - master
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
     steps:
