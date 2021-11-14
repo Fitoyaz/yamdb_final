@@ -40,7 +40,6 @@ jobs:
             push: true
             tags: fitoyaz/yamdb_final
   deploy:
-    branches:
       - master
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
